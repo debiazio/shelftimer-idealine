@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 
 const ShelfTimer: React.FC = () => {
   // 🕒 Data e hora de início (04/11/2025 às 09:45)
-  const startTime = new Date('2025-11-04T09:48:00')
+  const startTime = new Date('2025-11-07T11:47:00')
 
   // Duração em milissegundos (10 segundos)
-  const duration = 10 * 1000
+  const duration = 3600 * 1000
 
   const [timeLeft, setTimeLeft] = useState<number | null>(null)
   const [isActive, setIsActive] = useState(false)
@@ -63,7 +63,7 @@ const ShelfTimer: React.FC = () => {
       {timeLeft !== null && (
         <div>
           <h3>
-            {isActive ? 'Oferta ativa! Termina em:' : 'Aguardando início...'}
+            {isActive ? '' : 'Aguardando início...'}
           </h3>
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'red' }}>
             {formatTime(timeLeft)}
