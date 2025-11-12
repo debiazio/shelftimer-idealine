@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+.timerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.timerBox {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Cada número */
+.digit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 900;
+  width: 4.2rem;
+  height: 5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  -webkit-animation: mfmgroup-shelftimer-0-x-mfmgroup-shelftimer-0-x-digitChange 0.5s ease;
+  animation: mfmgroup-shelftimer-0-x-mfmgroup-shelftimer-0-x-digitChange 0.5s ease;
+}
+
+/* Separadores */
+.separator {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0.3rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Animação quando o número muda */
+@keyframes digitChange {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .digit{
+    font-size: 1.8rem;
+    width: 2rem;
+    height: 2.5rem;
+  }
+
+  .separator{
+    font-size: 1.8rem;
+  }
+
+}

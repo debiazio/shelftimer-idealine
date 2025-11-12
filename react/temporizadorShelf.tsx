@@ -1,77 +1,112 @@
 import React, { useEffect, useState } from 'react'
+import styles from './shelfTimer.css'
 
-const ShelfTimer: React.FC = () => {
-  // 🕒 Data e hora de início (04/11/2025 às 09:45)
-  const startTime = new Date('2025-11-07T11:47:00')
+type PropsShelfTimer = {
+  message: string
+  duration: number
+}
 
-  // Duração em milissegundos (10 segundos)
-  const duration = 3600 * 1000
+function ShelfTimer({ message, duration }: PropsShelfTimer) {
+  const startTime = new Date(message)
+  const durationMs = duration * 1000
 
   const [timeLeft, setTimeLeft] = useState<number | null>(null)
   const [isActive, setIsActive] = useState(false)
 
+  // Atualiza tempo e estado a cada segundo
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date().getTime()
       const start = startTime.getTime()
-      const end = start + duration
+      const end = start + durationMs
 
       if (now < start) {
-        // Ainda não começou
         setIsActive(false)
         setTimeLeft(start - now)
       } else if (now >= start && now <= end) {
-        // Está no tempo ativo
         setIsActive(true)
         setTimeLeft(end - now)
       } else {
-        // Passou o tempo
         setIsActive(false)
         setTimeLeft(0)
       }
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [message, duration])
 
-  // Formatar HH:MM:SS
   const formatTime = (ms: number) => {
     const totalSeconds = Math.floor(ms / 1000)
     const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0')
     const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0')
     const seconds = String(totalSeconds % 60).padStart(2, '0')
-    return `${hours}:${minutes}:${seconds}`
+    return { hours, minutes, seconds }
   }
 
+  // 🧠 Mostra ou esconde a prateleira quando o estado muda
   useEffect(() => {
-    // Seleciona a prateleira
-    const shelf = document.querySelector(
-      '.vtex-flex-layout-0-x-flexRow--linha-shelf-timer'
-    ) as HTMLElement | null
-
-    if (shelf) {
-      if (isActive) {
-        shelf.style.display = 'flex'
-      } else {
-        shelf.style.display = 'none'
+    const handleShelfVisibility = () => {
+      const shelf = document.querySelector(
+        '.vtex-flex-layout-0-x-flexRow--linha-shelf-timer'
+      ) as HTMLElement | null
+      if (shelf) {
+        shelf.style.display = isActive ? 'flex' : 'none'
       }
     }
+
+    handleShelfVisibility()
+
+    // 🧩 Caso a prateleira ainda não exista no DOM, observamos mudanças
+    const observer = new MutationObserver(() => handleShelfVisibility())
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    return () => observer.disconnect()
   }, [isActive])
 
+  const formatted = timeLeft ? formatTime(timeLeft) : { hours: '00', minutes: '00', seconds: '00' }
+
   return (
-    <div style={{ textAlign: 'center', margin: '5px 0', color: 'red' }}>
+    <div className={styles.timerContainer}>
       {timeLeft !== null && (
-        <div>
-          <h3>
-            {isActive ? '' : 'Aguardando início...'}
-          </h3>
-          <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'red' }}>
-            {formatTime(timeLeft)}
-          </p>
+        <div className={styles.timerBox}>
+          <div className={styles.timeGroup}>
+            {formatted.hours.split('').map((digit, i) => (
+              <span key={`h-${i}`} className={styles.digit}>{digit}</span>
+            ))}
+            <span className={styles.separator}>:</span>
+            {formatted.minutes.split('').map((digit, i) => (
+              <span key={`m-${i}`} className={styles.digit}>{digit}</span>
+            ))}
+            <span className={styles.separator}>:</span>
+            {formatted.seconds.split('').map((digit, i) => (
+              <span key={`s-${i}`} className={styles.digit}>{digit}</span>
+            ))}
+          </div>
         </div>
       )}
     </div>
   )
+}
+
+ShelfTimer.schema = {
+  title: 'Agendamento do Temporizador da Prateleira',
+  description: 'Define a data de início e o tempo de exibição da prateleira',
+  type: 'object',
+  properties: {
+    message: {
+      title: 'Data e hora de início',
+      description: 'Selecione o momento em que a prateleira ficará visível',
+      type: 'string',
+      format: 'date-time',
+      default: null,
+    },
+    duration: {
+      title: 'Duração (em segundos)',
+      description: 'Tempo total que a prateleira ficará visível após iniciar',
+      type: 'number',
+      default: 3600,
+    },
+  },
 }
 
 export default ShelfTimer
