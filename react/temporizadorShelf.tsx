@@ -104,7 +104,7 @@ ShelfTimer.schema = {
       title: 'Duração (em segundos)',
       description: 'Tempo total que a prateleira ficará visível após iniciar',
       type: 'number',
-      default: 3600,
+      default: 86400,
     },
   },
 }
