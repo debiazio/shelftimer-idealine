@@ -1,5 +1,8 @@
 {
   "timershelf": {
     "component": "temporizadorShelf"
+  },
+  "showifcollection": {
+    "component": "showifcollection"
   }
 }
