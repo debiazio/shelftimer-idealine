@@ -21,7 +21,7 @@ const CollectionRender: React.FC = () => {
         <img
           src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/f873d254-b797-4245-a3dc-53c68cce9bda___a740f1065bf10b900ded5c746a1e7fb0.gif"
           alt="Desconto de 50 reais"
-          style={{ maxWidth: '100%', display: 'block' }}
+          style={{ width: '100%', display: 'block' }}
         />
       </div>
     )
@@ -30,8 +30,11 @@ const CollectionRender: React.FC = () => {
   if (has232) {
     return (
       <div>
-        <p
-        style={{ padding: '10px'}}>À VISTA GANHE 3% DE DESCONTO</p>
+        <img
+          src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/71005d6d-1f6b-432a-829c-3a5e1b4ba607___280659dd259ed0dddb45fb27c8f2707f.gif"
+          alt="Desconto de 3%"
+          style={{ width: '100%', display: 'block' }}
+        />
       </div>
     )
   }
@@ -40,9 +43,16 @@ const CollectionRender: React.FC = () => {
   return (
     <div>
               <p
-        style={{ padding: '10px'}}>À VISTA GANHE 3% DE DESCONTO</p>
+        style={{
+            padding: '10px',
+            fontSize: '12px',
+            color: '#696969'
+            }}>
+              À VISTA GANHE 3% DE DESCONTO
+              </p>
     </div>
   )
 }
 
 export default CollectionRender
+
