@@ -1,7 +1,7 @@
 {
   "vendor": "mfmgroup",
   "name": "shelftimer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "title": "alterafundo",
   "description": "App para fazer o a prateleira aparecer na home por tempo determinado",
   "builders": {
