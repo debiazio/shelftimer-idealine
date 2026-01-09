@@ -19,7 +19,7 @@
     "@vtex/tsconfig": "^0.4.4",
     "apollo-cache-inmemory": "^1.6.5",
     "graphql": "^14.6.0",
-    "mfmgroup.shelftimer": "https://posblack--mfmgroup.myvtex.com/_v/private/typings/linked/v1/mfmgroup.shelftimer@0.0.4+build1767814272/public/@types/mfmgroup.shelftimer",
+    "mfmgroup.shelftimer": "https://posblack--mfmgroup.myvtex.com/_v/private/typings/linked/v1/mfmgroup.shelftimer@0.0.7+build1767908484/public/@types/mfmgroup.shelftimer",
     "typescript": "3.9.7",
     "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles",
     "vtex.flex-layout": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.flex-layout@0.21.5/public/@types/vtex.flex-layout",
