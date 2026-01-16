@@ -4,5 +4,8 @@
   },
   "showifcollection": {
     "component": "showifcollection"
+  },
+  "avisovoltagem":{
+    "component": "avisovoltagem"
   }
 }
