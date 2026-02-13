@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 const VoltageModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [voltage, setVoltage] = useState<'110v' | '220v' | null>(null)
+  const [voltage, setVoltage] = useState<'127v' | '220v' | null>(null)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -29,10 +29,10 @@ const VoltageModal: React.FC = () => {
 
       if (
         skuButton.classList.contains(
-          'vtex-store-components-3-x-skuSelectorItem--110v'
+          'vtex-store-components-3-x-skuSelectorItem--127v'
         )
       ) {
-        setVoltage('110v')
+        setVoltage('127v')
         setIsOpen(true)
       }
 
@@ -130,7 +130,7 @@ const VoltageModal: React.FC = () => {
           </div>
 
           <span style={badgeStyle}>
-            {voltage === '110v' ? '110V' : '220V'}
+            {voltage === '127v' ? '127V' : '220V'}
           </span>
 
           <p style={textStyle}>
