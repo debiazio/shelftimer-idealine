@@ -10,5 +10,8 @@
   },
   "disclosurecategorias":{
     "component": "disclosurecategorias"
+  },
+  "botaowhatsapp":{
+    "component": "botaowhatsapp"
   }
 }
