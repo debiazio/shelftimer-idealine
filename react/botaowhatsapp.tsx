@@ -3,8 +3,7 @@ import React, { useState } from "react"
 function BotaoWhatsapp() {
   const [isHover, setIsHover] = useState(false)
 
-  const phone = "554198516332"
-  const href = `https://wa.me/${phone}`
+  const href = `https://w.app/btjsqb`
 
   const iconUrl =
     "https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/b01af4d9-4dc4-49a4-b902-217cf2fbcc20___09fd6f73b641157626626f4bdde27deb.svg"
