@@ -3,9 +3,9 @@ import React, { useState } from "react"
 function BotaoWhatsapp() {
   const [isHover, setIsHover] = useState(false)
 
-  // const telefone = "554198516332"
-  const telefone = "5541985360075"
-  const mensagem = "Olá Idealine \n Gostaria de ser atendida por uma consultora sobre os produtos!"
+  const telefone = "554198516332"
+  // const telefone = "5541985360075"
+  const mensagem = "Olá Idealine! Gostaria de ser atendida por uma consultora sobre os produtos!"
   const href = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`
 
   const iconUrl =
