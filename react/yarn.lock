@@ -3992,9 +3992,9 @@ merge-stream@^2.0.0:
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"
   integrity sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
 
-"mfmgroup.shelftimer@https://posblack2--mfmgroup.myvtex.com/_v/private/typings/linked/v1/mfmgroup.shelftimer@0.0.11+build1770236702/public/@types/mfmgroup.shelftimer":
-  version "0.0.11"
-  resolved "https://posblack2--mfmgroup.myvtex.com/_v/private/typings/linked/v1/mfmgroup.shelftimer@0.0.11+build1770236702/public/@types/mfmgroup.shelftimer#dcfdca5b337c88947f236b27a4cd60ab6ad1e608"
+"mfmgroup.shelftimer@http://mfmgroup.vtexassets.com/_v/public/typings/v1/mfmgroup.shelftimer@0.0.19/public/@types/mfmgroup.shelftimer":
+  version "0.0.19"
+  resolved "http://mfmgroup.vtexassets.com/_v/public/typings/v1/mfmgroup.shelftimer@0.0.19/public/@types/mfmgroup.shelftimer#cba34e94cc5fcf073ee0cde6e24b295d10c5778f"
 
 micromatch@^3.1.4:
   version "3.1.10"
@@ -5357,9 +5357,9 @@ verror@1.10.0:
   version "8.136.2"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.136.2/public/@types/vtex.render-runtime#afc85cc43da5ee3fc2f0efa000f31adada482d03"
 
-"vtex.search-graphql@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.69.4/public/@types/vtex.search-graphql":
-  version "0.69.4"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.69.4/public/@types/vtex.search-graphql#e1a758806eab8d1cb695e5cb091e722f8a1cd48f"
+"vtex.search-graphql@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.71.0/public/@types/vtex.search-graphql":
+  version "0.71.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.search-graphql@0.71.0/public/@types/vtex.search-graphql#a5d579a8f262115f6c6c29700fcc5290013b5fb6"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

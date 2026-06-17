@@ -32,8 +32,8 @@ const CollectionRender: React.FC = () => {
         </p> */}
 
         <img
-          src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/f873d254-b797-4245-a3dc-53c68cce9bda___a740f1065bf10b900ded5c746a1e7fb0.gif"
-          alt="Desconto de 50 reais"
+          src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/6ba95201-04bd-48b4-9d2f-5fab1605d108___c65dbf6f583dd4edf3e817686dad3122.gif"
+          alt="10% off no pix"
           style={{ width: '100%', display: 'block' }}
         />
       </div>
