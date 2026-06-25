@@ -1,0 +1,12 @@
+.discountPixPrice {
+  color: #FC58BA;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .discountPixPrice {
+    font-size: 1.4rem;
+  }
+}
