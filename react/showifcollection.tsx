@@ -31,9 +31,14 @@ const CollectionRender: React.FC = () => {
           Coleção: {collectionIds}
         </p> */}
 
-        <img
+        {/* <img
           src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/6ba95201-04bd-48b4-9d2f-5fab1605d108___c65dbf6f583dd4edf3e817686dad3122.gif"
           alt="10% off no pix"
+          style={{ width: '100%', display: 'block' }}
+        /> */}
+        <img
+          src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/ed0f7bd8-6d30-439e-b80c-953aae095860___db32e9788ecbaa5b0ab9327cebac421d.gif"
+          alt="5% off no pix"
           style={{ width: '100%', display: 'block' }}
         />
       </div>
