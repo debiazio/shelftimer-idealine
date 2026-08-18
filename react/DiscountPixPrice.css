@@ -5,6 +5,11 @@
 }
 
 /* Mobile */
+@media (max-width: 1230px) {
+  .discountPixPrice {
+    font-size: 1.8rem;
+  }
+}
 @media (max-width: 768px) {
   .discountPixPrice {
     font-size: 1.4rem;
