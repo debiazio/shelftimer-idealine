@@ -37,8 +37,8 @@ const CollectionRender: React.FC = () => {
           style={{ width: '100%', display: 'block' }}
         /> */}
         <img
-          src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/ed0f7bd8-6d30-439e-b80c-953aae095860___db32e9788ecbaa5b0ab9327cebac421d.gif"
-          alt="5% off no pix"
+          src="https://mfmgroup.vtexassets.com/assets/vtex.file-manager-graphql/images/71005d6d-1f6b-432a-829c-3a5e1b4ba607___280659dd259ed0dddb45fb27c8f2707f.gif"
+          alt="3% off no pix"
           style={{ width: '100%', display: 'block' }}
         />
       </div>
