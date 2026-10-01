@@ -11,7 +11,7 @@ const DiscountPixPrice = () => {
 
   if (!pixPrice) return null
 
-  const discountPrice = pixPrice * 0.95 // 5% de desconto
+  const discountPrice = pixPrice * 0.97 // 5% de desconto
 
   const formatted = discountPrice.toLocaleString('pt-BR', {
     minimumFractionDigits: 2,
