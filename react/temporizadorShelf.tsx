@@ -2,53 +2,63 @@ import React, { useEffect, useState } from 'react'
 import styles from './shelfTimer.css'
 
 type PropsShelfTimer = {
-  message: string
-  duration: number
+  startDateTime: string
+  endDateTime: string
 }
 
-function ShelfTimer({ message, duration }: PropsShelfTimer) {
-  const startTime = new Date(message)
-  const durationMs = duration * 1000
-
+function ShelfTimer({ startDateTime, endDateTime }: PropsShelfTimer) {
   const [timeLeft, setTimeLeft] = useState<number | null>(null)
   const [isActive, setIsActive] = useState(false)
 
-  // Atualiza tempo e estado a cada segundo
+  // Calcula a contagem regressiva usando os horários de início e fim
   useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime()
-      const start = startTime.getTime()
-      const end = start + durationMs
+    const start = new Date(startDateTime).getTime()
+    const end = new Date(endDateTime).getTime()
+
+    const updateTimer = () => {
+      const now = Date.now()
+
+      // Datas inválidas ou fim anterior/igual ao início
+      if (!Number.isFinite(start) || !Number.isFinite(end) || end <= start) {
+        setIsActive(false)
+        setTimeLeft(null)
+        return
+      }
 
       if (now < start) {
         setIsActive(false)
         setTimeLeft(start - now)
-      } else if (now >= start && now <= end) {
+      } else if (now < end) {
         setIsActive(true)
         setTimeLeft(end - now)
       } else {
         setIsActive(false)
         setTimeLeft(0)
       }
-    }, 1000)
+    }
+
+    updateTimer()
+    const interval = setInterval(updateTimer, 1000)
 
     return () => clearInterval(interval)
-  }, [message, duration])
+  }, [startDateTime, endDateTime])
 
   const formatTime = (ms: number) => {
     const totalSeconds = Math.floor(ms / 1000)
     const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0')
     const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0')
     const seconds = String(totalSeconds % 60).padStart(2, '0')
+
     return { hours, minutes, seconds }
   }
 
-  // 🧠 Mostra ou esconde a prateleira quando o estado muda
+  // Mostra ou esconde a prateleira quando o estado muda
   useEffect(() => {
     const handleShelfVisibility = () => {
       const shelf = document.querySelector(
         '.vtex-flex-layout-0-x-flexRow--linha-shelf-timer'
       ) as HTMLElement | null
+
       if (shelf) {
         shelf.style.display = isActive ? 'flex' : 'none'
       }
@@ -56,14 +66,17 @@ function ShelfTimer({ message, duration }: PropsShelfTimer) {
 
     handleShelfVisibility()
 
-    // 🧩 Caso a prateleira ainda não exista no DOM, observamos mudanças
+    // Caso a prateleira ainda não exista no DOM, observa mudanças
     const observer = new MutationObserver(() => handleShelfVisibility())
     observer.observe(document.body, { childList: true, subtree: true })
 
     return () => observer.disconnect()
   }, [isActive])
 
-  const formatted = timeLeft ? formatTime(timeLeft) : { hours: '00', minutes: '00', seconds: '00' }
+  const formatted =
+    timeLeft !== null
+      ? formatTime(timeLeft)
+      : { hours: '00', minutes: '00', seconds: '00' }
 
   return (
     <div className={styles.timerContainer}>
@@ -90,21 +103,22 @@ function ShelfTimer({ message, duration }: PropsShelfTimer) {
 
 ShelfTimer.schema = {
   title: 'Agendamento do Temporizador da Prateleira',
-  description: 'Define a data de início e o tempo de exibição da prateleira',
+  description: 'Define os horários de início e fim da exibição da prateleira',
   type: 'object',
   properties: {
-    message: {
+    startDateTime: {
       title: 'Data e hora de início',
-      description: 'Selecione o momento em que a prateleira ficará visível',
+      description: 'Momento em que a prateleira ficará visível',
       type: 'string',
       format: 'date-time',
       default: null,
     },
-    duration: {
-      title: 'Duração (em segundos)',
-      description: 'Tempo total que a prateleira ficará visível após iniciar',
-      type: 'number',
-      default: 86400,
+    endDateTime: {
+      title: 'Data e hora finais',
+      description: 'Momento em que a prateleira deixará de ficar visível',
+      type: 'string',
+      format: 'date-time',
+      default: null,
     },
   },
 }
